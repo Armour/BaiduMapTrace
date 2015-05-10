@@ -32,8 +32,7 @@
 					$gte: ISODate(dataTime1),
 					$lt: ISODate(dataTime2)
 				}
-			}
-
+			},
 			function(err, carData) {
 				if (err) {
 					return next(err);

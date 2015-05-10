@@ -34,7 +34,7 @@
     app.use(compress());
     app.use(express["static"](config.root + '/public'));
     app.use(methodOverride());
-    controllers = glob.sync(config.root + '/app/controllers/**/*.coffee');
+    controllers = glob.sync(config.root + '/app/controllers/**/*.js');
     controllers.forEach(function(controller) {
       return require(controller)(app);
     });
