@@ -21,7 +21,7 @@
 		return console.log('hi');
 	});
 
-	router.get('#', function(req, res, next) {
+	router.get('/search', function(req, res, next) {
 		var dataID = req.body.id,
 			dataTime1 = req.body.time1,
 			dataTime2 = req.body.time2;
@@ -37,7 +37,7 @@
 				if (err) {
 					return next(err);
 				}
-				res.render('index', {
+				res.render('map', {
 					title: 'Car',
 					position: carData,
 				});
