@@ -18,6 +18,13 @@
 		res.render('index', {
 			title: 'Car',
 		});
+		/*var thor = new Car({
+			Source: "wa!"
+		});
+		thor.save(function(err, thor) {
+			if (err) return console.error(err);
+			console.log(thor);
+		});*/
 		return console.log('hi');
 	});
 
@@ -27,21 +34,22 @@
 			dataTime2 = req.body.time2;
 
 		return Car.find({
-				Source: dataID,
-				Time: {
-					$gte: ISODate(dataTime1),
-					$lt: ISODate(dataTime2)
-				}
+				//Source: dataID,
+				//Time: {
+				//	$gte: ISODate(dataTime1),
+				//	$lt: ISODate(dataTime2)
+				//}
 			},
 			function(err, carData) {
 				if (err) {
 					return next(err);
 				}
+				console.log(carData);
+				console.log(JSON.stringify(carData));
 				res.render('map', {
 					title: 'Car',
 					position: carData,
 				});
-				return console.log('shit');
 			});
 	});
 
