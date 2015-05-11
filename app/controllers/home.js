@@ -34,16 +34,19 @@
 			dataTime2 = req.body.time2;
 
 		return Car.find({
-				//Source: dataID,
-				//Time: {
-				//	$gte: ISODate(dataTime1),
-				//	$lt: ISODate(dataTime2)
-				//}
+				Source: dataID,
+				Time: {
+					$gte: dataTime1,
+					$lt: dataTime2
+				}
 			},
 			function(err, carData) {
 				if (err) {
 					return next(err);
 				}
+				console.log(dataID);
+				console.log(dataTime1);
+				console.log(dataTime2);
 				console.log(carData);
 				console.log(JSON.stringify(carData));
 				res.render('map', {
